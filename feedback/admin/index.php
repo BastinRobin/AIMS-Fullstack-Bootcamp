@@ -12,6 +12,13 @@
 	// Fetch all the rows from the Tasks
 	$feedbacks = mysqli_query($mysqli, "SELECT * FROM feedback;");
 
+	$color = [
+		'1' => 'Poor',
+		'2' => 'Average',
+		'3' => 'Good',
+		'4' => 'Excellent'
+	];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,13 +30,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
 
 	<style type="text/css">
-		.Poor { color: red; }
-		.Average { color: #ff9800; }
-		.Good { color: #2196f3; }
-		.Excellent { color: #4caf50; }
+		.Poor { background:red; color:#fff;}
+		.Average { background: #ff9800; color:#fff; }
+		.Good { background: #2196f3; color:#fff; }
+		.Excellent { background: #4caf50; color:#fff;}
 		.Positive { background: #8BC34A; color:#fff; }
 		.Neutral { background: #b1dafb; color:#fff;}
 		.Negative { background: red;color:#fff; }
+	
+
 
 	</style>
 </head>
@@ -68,8 +77,17 @@
 	<table class="table table-condensed">
 	    <thead>
 	      <tr>
-	        <!-- <th>Name</th> -->
-	        <th>Roll</th>
+	        <th>Name</th>
+	        <th>program_material</th>
+	        <th>knowledge_of_person</th>
+	        <th>presentation_delievery</th>
+	        <th>relevance_practical</th>
+	        <th>contribution_on_your_needs</th>
+	        <th>persons_interaction</th>
+	        <th>evaluation_of_participants</th>
+	        <th>training_arrangement</th>
+	        <th>time_management</th>
+	        <th>overall_rating</th>
 	        <th>Sentiment</th>
 	        <th>Confidence</th>
 	      </tr>
@@ -77,7 +95,17 @@
 	    <tbody>
 	      <?php while($feedback = mysqli_fetch_array($feedbacks)) { ?>
 		      <tr>
-		        <td><?php echo $feedback['roll_no']; ?></td>
+		        <td><?php echo $feedback['name']; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['program_material']]; ?>" ><?php echo $color[$feedback['program_material']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['knowledge_of_person']]; ?>" ><?php echo $color[$feedback['knowledge_of_person']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['presentation_delievery']]; ?>" ><?php echo $color[$feedback['presentation_delievery']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['relevance_practical']]; ?>" ><?php echo $color[$feedback['relevance_practical']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['contribution_on_your_needs']]; ?>" ><?php echo $color[$feedback['contribution_on_your_needs']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['persons_interaction']]; ?>" ><?php echo $color[$feedback['persons_interaction']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['evaluation_of_participants']]; ?>" ><?php echo $color[$feedback['evaluation_of_participants']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['training_arrangement']]; ?>" ><?php echo $color[$feedback['training_arrangement']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['time_management']]; ?>" ><?php echo $color[$feedback['time_management']]; ?></td>
+		        <td class="<?php echo $color[(string) $feedback['overall_rating']]; ?>" ><?php echo $color[$feedback['overall_rating']]; ?></td>
 		        <td class="<?php echo $feedback['sentiment']; ?>"><?php echo $feedback['sentiment']; ?></td>
 		        <td><?php echo round($feedback['confidence'], 1); ?>% 
 		        <?php if($feedback['confidence'] > 50) { ?>
