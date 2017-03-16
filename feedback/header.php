@@ -5,6 +5,15 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+
+	<style type="text/css">
+		.Poor { color: red; }
+		.Average { color: #ff9800; }
+		.Good { color: #2196f3; }
+		.Excellent { color: #4caf50; }
+
+	</style>
 </head>
 
 <body>
@@ -31,17 +40,6 @@
 		        
 		        <li><a href="index.php">Home</a></li>
 		        <li><a href="about.php">About</a></li>
-
-		       <!--  <li><a href="/prepare">Prepare</a></li>
-		        <li><a href="/train">Train</a></li>
-		 -->
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            
-		            <li><a href="/logout">Logout</a></li>
-		          </ul>
-		        </li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
